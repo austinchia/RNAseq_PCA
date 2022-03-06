@@ -58,12 +58,12 @@ EnhancedVolcano(res,
                 lab = rownames(res),
                 x = 'log2FoldChange',
                 y = 'pvalue')
-## Shaun's Code
+
 res$padj <- res$padj
 res$padj[is.na(res$padj)]=1
 names(res$padj)=rownames(res)
 
-## Shaun's Code Part 2
+
 resSig <- res[res$padj < 0.05,]
 write.table(resSig,".All.txt")
 write.table(subset(resSig, log2FoldChange > 0.58), file="./UpRegulated.txt")
